@@ -12,7 +12,6 @@ import settings from '../../img/icones_tela_inicial/settings.png';
 import conspirancy from '../../img/icones_tela_inicial/conspirancy.png';
 import big_earth from '../../img/icones_tela_inicial/big-earth.png';
 import bg_earth_pixels from '../../img/icones_tela_inicial/bg-earth-pixels.jpeg';
-import bg_earth_normal from '../../img/icones_tela_inicial/bg-earth-normal.jpg';
 
 var React = {
     createElement: m
@@ -24,8 +23,8 @@ var React = {
  */
 
  let leftMenuItens = {
-    "nome": ["Temperatura", "Política", "Conspiração","Economia"],
-    "caminho": ["Graphics", "teste2.html", "teste2.html", "teste.html"],
+    "nome": ["Ciência", "Política", "Conspiração","Economia"],
+    "caminho": ["Science", "Politics", "Conspiracy", "Economy"],
     "icone": [frask, politic, conspirancy, money],
 }
 
@@ -35,8 +34,8 @@ let barMenuItens = {
     "icone": ["icon icon-link", "icon icon-link", "icon icon-link"],
 }
 let rightMenuItens = {
-    "nome": ["Gráfico", "Terra", "Conspiração", "População", "Configuraçoẽs"],
-    "caminho": ["teste.html", "teste2.html", "teste2.html", "teste.html", "teste2.html", "teste2.html"],
+    "nome": ["Gráfico", "Info Geográfica", "Illuminati", "População", "Configurações"],
+    "caminho": ["Graphics", "teste2.html", "Illuminati", "Population", "teste2.html", "teste2.html"],
     "icone": [graphic, earth, reptle, people, settings],
 }
 
@@ -47,20 +46,17 @@ let rightMenuItens = {
  * <a href="#" class="nes-badge">
   <span class="is-dark">NES.css</span>
 </a>
-
  */
 function popUp(caminho) {
-return <Initial>{window.open(`?start=${caminho}`, 'popup', "width=1200px, height=500px, top=100%, left=100%")}</Initial>
+    return <Initial>{window.open(`?start=${caminho}`, 'popup', "width=1200px, height=500px, top=100%, left=100%")}</Initial>
 }
 
-
-function elementsColumn(itens, classli) {
+function elementsColumn(itens, lado) {
     var list = [];  
     for(let i = 0; i < itens.nome.length; i++) {
-        list.push(m('li', {class: classli}, [
-            m('a', {href: '#', onclick: () => popUp(itens.caminho[i]), class: 'nes-badge is-icon'}, [
-                m('span', {class: 'is-warning exception animation'}, 'Hi'),
-                m('span', {class: 'is-primary extend-right'}, 'Teste'),
+        list.push(m('li', {style: 'margin: 20px 0px'}, [
+            m('a', {href: '#', onclick: () => popUp(itens.caminho[i])}, [
+                m('span', {class: 'is-primary extend-right btn tooltip ' + lado, 'data-tooltip': itens.nome[i] }, [m('img', {class: 'is-small',src: itens.icone[i]}),]),
             ])
         ]))
     }
@@ -109,12 +105,22 @@ function status(){
  * E chama seus respectivos itens
 */
 
+let coluna = 'position: relative;'
++'padding: 1.5rem 2rem;'
++'border-color: black;'
++'border-style: solid;'
++ 'border-width: 4px;'
++'width: 130px;'
++ 'background: #89cff0;'
++'list-style: none;'
++'opacity: 70%;'
+
 function leftDashboard() {
     return m('div', {class: 'leftDash '}, [
-        m('ul', {class: 'menu nes-container is-rounded is-dark'}, [
+        m('ul',{style: coluna + 'margin-left: 70px'}, [
             'Ações',
             m('li', {class: 'divider'}),
-            elementsColumn(leftMenuItens, 'dashboard-menu')
+            elementsColumn(leftMenuItens, 'tooltip-right')
         ])
     ])
 }
@@ -124,10 +130,8 @@ function leftDashboard() {
  */
 
 function main() {
-    return m('div', {class: 'main'}, [
-        m('div', {style: {'text-align': 'center','text-content': 'center'}}, [
-            
-        ]),
+    return m('main', {class: 'main nes-container is-rounded'}, [
+        m('iframe', {src:'../../earth.html', style:{'width':'600px','height':'320px', 'border':'none'}})
     ])
 }
 
@@ -137,10 +141,10 @@ function main() {
 
 function rightDashboard() {
     return m('div', {class: 'rightDash'}, [
-        m('ul', {class: 'menu nes-container is-rounded is-dark'}, [
-            'Informações',
+        m('ul',{style:coluna + 'margin-left: -5px'}, [
+            'Info',
             m('li', {class: 'divider'}),
-            elementsColumn(rightMenuItens, '')
+            elementsColumn(rightMenuItens, 'tooltip-left')
         ])
     ])
 }

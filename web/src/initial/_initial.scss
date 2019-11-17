@@ -29,7 +29,7 @@
 
 /**Segue abaixo modificações da leftDashboard*/
 .leftDash{
-    grid-area: leftd; 
+    grid-area: leftd;
 }
 
 /**Segue abaixo modificações da rightDashboard*/
@@ -56,6 +56,9 @@
 
 /**Segue abaixo modificações da main*/
 .main{
+    width: 700px;
+    height: 350px;
+    margin-left: 200px !important;
     grid-area: main;
 }
 
