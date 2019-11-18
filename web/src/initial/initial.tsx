@@ -131,7 +131,7 @@ function leftDashboard() {
 
 function main() {
     return m('main', {class: 'main nes-container is-rounded'}, [
-        
+        m('iframe', {src:'../../earth.html', style:{'width':'600px','height':'320px', 'border':'none'}})
     ])
 }
 
