@@ -190,7 +190,8 @@ function rightDashboard() {
 
 function footer(){
     return m('div', {class: 'footer nes-container is-rounded is-dark is-centered'}, [
-        m('p', 'asasas asasasas asasas sasasasa')
+        m('p', <marquee Scrollamount="1" direction="up">que isso menor ta no mundo invertido
+        , mas tem atualizações</marquee>)
     ])
 }
 
