@@ -56,10 +56,6 @@
 
 /**Segue abaixo modificações da main*/
 .main{
-    width: 900px;
-    height: 350px;
-    text-align: center;
-    margin-left: 130px !important;
     grid-area: main;
 }
 
@@ -77,6 +73,12 @@
 
 .leftDash .exception {
     margin-left: -20px;
+}
+
+.exception {
+    margin: auto !important;
+    padding: auto !important;
+    margin-right: 0px !important;
 }
 
 .animation {
@@ -135,5 +137,25 @@
     75% {
         margin-right: 50%;
         color: green;
+    }
+}
+
+.status .down-left {
+    animation: down-left linear 2s infinite;
+}
+
+@keyframes down-left {
+    100% {
+        transform: translate(150px, 60px);
+    }
+}
+
+.status .down-right {
+    animation: down-right linear 2s infinite;
+}
+
+@keyframes down-right {
+    100% {
+        transform: translate(-150px, 60px);
     }
 }

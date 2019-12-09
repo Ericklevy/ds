@@ -1,6 +1,25 @@
 import m = require('mithril');
 import {model} from '../model'
 import {Window, Tab, Tabs, Btn, Sidebar} from '../ui';
+
+
+// Componentes
+import { Intro } from '../intro/intro';
+import { Event } from '../event/event';
+import { Style } from '../style';
+
+import { Science } from '../science/science';
+import { Politics } from '../politics/politics';
+import { Economy } from '../economy/economy';
+import { Conspiracy } from '../conspiracy/conspiracy';
+import { Culture } from '../culture/culture';
+
+import { Graphics } from '../graphics/graphics';
+import { Illuminati } from '../illuminati/illuminati';
+import { Population } from '../population/population';
+
+
+
 import frask from '../../img/icones_tela_inicial/frasco.png';
 import politic from '../../img/icones_tela_inicial/politic.png';
 import money from '../../img/icones_tela_inicial/money.png';
@@ -10,7 +29,9 @@ import people from '../../img/icones_tela_inicial/people.png';
 import reptle from '../../img/icones_tela_inicial/reptle.png';
 import settings from '../../img/icones_tela_inicial/settings.png';
 import conspirancy from '../../img/icones_tela_inicial/conspirancy.png';
+import big_earth from '../../img/icones_tela_inicial/big-earth.png';
 import bg_earth_pixels from '../../img/icones_tela_inicial/bg-earth-pixels.jpeg';
+import bg_earth_normal from '../../img/icones_tela_inicial/bg-earth-normal.jpg';
 import culture from '../../img/icones_tela_inicial/culture.png';
 
 var React = {
@@ -25,12 +46,14 @@ var React = {
  let leftMenuItens = {
     "nome": ["Ciência", "Política", "Conspiração","Economia", "Cultura"],
     "caminho": ["Science", "Politics", "Conspiracy", "Economy", "Culture"],
+    "tag": [Science, Politics, Conspiracy, Economy, Intro, Event, Style, Culture, Graphics, Illuminati, Population, Culture],
     "icone": [frask, politic, conspirancy, money, culture],
 }
 
 let barMenuItens = {
     "nome": ["teste 1", "teste 2", "teste 3"],
     "caminho": ["teste.html", "teste2.html", "teste3.html"],
+    "tag": [],
     "icone": ["icon icon-link", "icon icon-link", "icon icon-link"],
 }
 let rightMenuItens = {
@@ -46,6 +69,13 @@ let rightMenuItens = {
  * <a href="#" class="nes-badge">
   <span class="is-dark">NES.css</span>
 </a>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> Adicionando as coisas certas totalmente implementando
+>>>>>>> ff7efdb801d07797fddafd07436707b5c7d65428
  */
 function popUp(caminho) {
     return <Initial>{window.open(`?start=${caminho}`, 'popup', "width=1200px, height=500px, top=100%, left=100%")}</Initial>
@@ -55,7 +85,7 @@ function elementsColumn(itens, lado) {
     var list = [];  
     for(let i = 0; i < itens.nome.length; i++) {
         list.push(m('li', {style: 'margin: 20px 0px'}, [
-            m('a', {href: '#', onclick: () => popUp(itens.caminho[i])}, [
+            m('a', {href: '#', onclick: () => { model.window = itens.tag[i]}}, [
                 m('span', {class: 'is-primary extend-right btn tooltip ' + lado, 'data-tooltip': itens.nome[i] }, [m('img', {class: 'is-small',src: itens.icone[i]}),]),
             ])
         ]))
@@ -129,9 +159,9 @@ function leftDashboard() {
  * A parte onde ficará globo
  */
 
- function main() {
-    return m('main', {class: 'main nes-container is-rounded'}, [
-        m('iframe', {'src':'../../earth.html', 'style':{width: '500px', height:'300px'}}),
+function main() {
+    return m('div', {class: 'main'}, [
+        m('iframe', {src:"../../earth.html", style: {'width:': '400px','height': '300px'}}),
     ])
 }
 
@@ -158,12 +188,13 @@ function rightDashboard() {
 
 function footer(){
     return m('div', {class: 'footer nes-container is-rounded is-dark is-centered'}, [
-        m('p', 'asasas asasasas asasas sasasasa')
+        m('p', <marquee Scrollamount="1" direction="up">que isso menor ta no mundo invertido
+        , mas tem atualizações</marquee>)
     ])
 }
 
-/** A parte a seguir inicia e ordena a tela */
 
+/** A parte a seguir inicia e ordena a tela */
 function join() {
     var join = [
         header(),
@@ -177,6 +208,11 @@ function join() {
         join
     ]);
 }
+
+
+
+var app = document.querySelector('#app');
+
 
 export class Initial {
     view () {
