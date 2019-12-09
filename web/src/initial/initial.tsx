@@ -32,6 +32,7 @@ import conspirancy from '../../img/icones_tela_inicial/conspirancy.png';
 import big_earth from '../../img/icones_tela_inicial/big-earth.png';
 import bg_earth_pixels from '../../img/icones_tela_inicial/bg-earth-pixels.jpeg';
 import bg_earth_normal from '../../img/icones_tela_inicial/bg-earth-normal.jpg';
+import culture from '../../img/icones_tela_inicial/culture.png';
 
 var React = {
     createElement: m
@@ -43,11 +44,10 @@ var React = {
  */
 
  let leftMenuItens = {
-    "nome": ["Ciência", "Política", "Conspiração","Economia"],
-    "caminho": ["Science", "Politics", "Conspiracy", "Economy"],
-    "tag": [Science, Politics, Conspiracy, Economy, Intro, Event, Style, Culture, Graphics, Illuminati, Population, 
-,    ]
-    "icone": [frask, politic, conspirancy, money],
+    "nome": ["Ciência", "Política", "Conspiração","Economia", "Cultura"],
+    "caminho": ["Science", "Politics", "Conspiracy", "Economy", "Culture"],
+    "tag": [Science, Politics, Conspiracy, Economy, Intro, Event, Style, Culture, Graphics, Illuminati, Population, Culture],
+    "icone": [frask, politic, conspirancy, money, culture],
 }
 
 let barMenuItens = {
@@ -72,13 +72,12 @@ let rightMenuItens = {
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
-
 =======
 >>>>>>> Adicionando as coisas certas totalmente implementando
 >>>>>>> ff7efdb801d07797fddafd07436707b5c7d65428
  */
 function popUp(caminho) {
-return <Initial>{window.open(`?start=${caminho}`, 'popup', "width=1200px, height=500px, top=100%, left=100%")}</Initial>
+    return <Initial>{window.open(`?start=${caminho}`, 'popup', "width=1200px, height=500px, top=100%, left=100%")}</Initial>
 }
 
 function elementsColumn(itens, lado) {
@@ -161,9 +160,7 @@ function leftDashboard() {
 
 function main() {
     return m('div', {class: 'main'}, [
-        m('div', {style: {'text-align': 'center','text-content': 'center'}}, [
-            
-        ]),
+        m('iframe', {src:"../../earth.html", style: {'width:': '400px','height': '300px'}}),
     ])
 }
 
