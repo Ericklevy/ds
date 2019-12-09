@@ -10,8 +10,8 @@ import people from '../../img/icones_tela_inicial/people.png';
 import reptle from '../../img/icones_tela_inicial/reptle.png';
 import settings from '../../img/icones_tela_inicial/settings.png';
 import conspirancy from '../../img/icones_tela_inicial/conspirancy.png';
-import big_earth from '../../img/icones_tela_inicial/big-earth.png';
 import bg_earth_pixels from '../../img/icones_tela_inicial/bg-earth-pixels.jpeg';
+import culture from '../../img/icones_tela_inicial/culture.png';
 
 var React = {
     createElement: m
@@ -23,9 +23,9 @@ var React = {
  */
 
  let leftMenuItens = {
-    "nome": ["Ciência", "Política", "Conspiração","Economia"],
-    "caminho": ["Science", "Politics", "Conspiracy", "Economy"],
-    "icone": [frask, politic, conspirancy, money],
+    "nome": ["Ciência", "Política", "Conspiração","Economia", "Cultura"],
+    "caminho": ["Science", "Politics", "Conspiracy", "Economy", "Culture"],
+    "icone": [frask, politic, conspirancy, money, culture],
 }
 
 let barMenuItens = {
