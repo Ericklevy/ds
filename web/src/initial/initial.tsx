@@ -129,9 +129,9 @@ function leftDashboard() {
  * A parte onde ficará globo
  */
 
-function main() {
+ function main() {
     return m('main', {class: 'main nes-container is-rounded'}, [
-        m('iframe', {src:'../../earth.html', style:{'width':'600px','height':'320px', 'border':'none'}})
+        m('iframe', {'src':'../../earth.html', 'style':{width: '500px', height:'300px'}}),
     ])
 }
 
@@ -177,11 +177,6 @@ function join() {
         join
     ]);
 }
-
-
-
-var app = document.querySelector('#app');
-
 
 export class Initial {
     view () {

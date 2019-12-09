@@ -137,23 +137,3 @@
         color: green;
     }
 }
-
-.status .down-left {
-    animation: down-left linear 2s infinite;
-}
-
-@keyframes down-left {
-    100% {
-        transform: translate(150px, 60px);
-    }
-}
-
-.status .down-right {
-    animation: down-right linear 2s infinite;
-}
-
-@keyframes down-right {
-    100% {
-        transform: translate(-150px, 60px);
-    }
-}
