@@ -62,6 +62,14 @@ let rightMenuItens = {
     "icone": [graphic, earth, reptle, people, settings],
 }
 
+let noticias = [
+    'Magros e com fome, ursos entraram na cidade à procura de comida; não é a primeira vez que a região enfrenta o problema. Especialista defende que cidade seja permanentemente evacuada.',
+    'A Dinamarca colocou a região no topo da lista de preocupações de segurança nacional; entende porque a região de repente se tornou foco de tensões internacionais',
+    'Líderes políticos, diplomatas ligados ao clima, especialistas e ativistas se reunirão nas próximas duas semanas na Espanha para discutir as mudanças climáticas sob um senso crescente de urgência.',
+    'Estudo liderado por brasileiros mapeou caminho da fumaça de florestas até um glaciar em montanhas da Bolívia; partículas de carbono escurecem a neve, o que reduz capacidade de refletir luz solar.',
+    'Área protegida no México tem 200 lagoas que contêm micro-organismos similares aos que existiam há milhões de anos; nela pode estar a resposta aos problemas ambientais da Terra.',
+]
+
 /**A parte a seguir é para auxiliar
  * O listamento de cada botão
  * Para cada Dashboard
@@ -161,7 +169,7 @@ function leftDashboard() {
 
 function main() {
     return m('div', {class: 'main'}, [
-        m('iframe', {src:"../../earth.html", style: {'width:': '400px','height': '300px'}}),
+        m('iframe', {src:"../../earth.html", style: {'margin-left':'400px', 'width:': '400px','height': '300px'}}),
     ])
 }
 
@@ -185,11 +193,25 @@ function rightDashboard() {
  * Outra apresentará Notícias
  * E na ultima apresentará os créditos do jogo
 */
+function exibe() {
+    var news = [];
+    for(var i=0; i<noticias.length; i++) {
+        news.push(m('p', {style: {'margin-bottom': '40px'}} ,noticias[i]))
+    }   
+    return news;
+}
 
 function footer(){
-    return m('div', {class: 'footer nes-container is-rounded is-dark is-centered'}, [
-        m('p', <marquee Scrollamount="1" direction="up">que isso menor ta no mundo invertido
-        , mas tem atualizações</marquee>)
+    return m('div', {class: 'footer nes-container is-rounded is-dark is-centered'}, 
+
+        m('p', [
+        <marquee style="height: 50px" Scrollamount="1" direction="up">
+            {m('p',[
+                exibe()
+            ])}
+        </marquee>
+        ]),
+
     ])
 }
 
